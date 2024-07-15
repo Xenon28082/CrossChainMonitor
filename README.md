@@ -11,3 +11,4 @@ Each Chain object must contain information about :
 6) Observers - array of observers, that whould track necessary cross-chain swap events.
 
 For tracking in real time StartBlockNumber must be set to -1
+Both config.json and .exe files must be located in the same folder.
