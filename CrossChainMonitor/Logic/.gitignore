@@ -1,6 +1,0 @@
-.vscode/
-CrossChainMonitor.sln
-CrossChainMonitor/Entities/Observers/Observers/impl/FilledV3RelayObserver.cs
-CrossChainMonitor/Entities/Observers/Observers/impl/V3FundsDepositedObserver.cs
-CrossChainMonitor/bin/
-CrossChainMonitor/obj/

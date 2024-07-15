@@ -19,6 +19,6 @@ public class SimpleTransaction(string chainName, string transactionHash, string 
     public bool IsInitiator {get; } = isInitiator;
 
     public override string ToString(){
-            return "|" + StringUtils.PadBoth(IsInitiator ? "input" : "output", 9) + " | " + StringUtils.PadBoth(ChainName, 12) + "| " + TransactionHash + " | " + Depositor + " | " + Reciever + " |";
+            return "|" + StringUtils.PadBoth(IsInitiator ? "input" : "output", 9) + " | " + StringUtils.PadBoth(ChainName, 12) + "| " + TransactionHash + " | " + Depositor + " | " + Reciever + " |" + BlockNumber;
         }
 }

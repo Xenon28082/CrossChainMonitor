@@ -12,7 +12,7 @@ public class V3FundsDepositedObserver : IObserver{
         
         var transitionEvent = log.DecodeEvent<V3FundsDepositedEventDTO>();
         if(transitionEvent != null){
-            TransactionMatcher.TryAdd(transitionEvent.Event.DepositId, new SimpleTransaction("base", log.TransactionHash, transitionEvent.Event.Depositor, transitionEvent.Event.Recipient, transitionEvent.Log.BlockNumber, true));
+            TransactionMatcher.TryAdd(transitionEvent.Event.DepositId, new SimpleTransaction("", log.TransactionHash, transitionEvent.Event.Depositor, transitionEvent.Event.Recipient, transitionEvent.Log.BlockNumber, true));
         }
 
     }
