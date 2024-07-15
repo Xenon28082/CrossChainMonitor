@@ -17,8 +17,11 @@ public class TransactionMatcher
         if (!_transactions.TryAdd(depositId, transaction))
         {
             SimpleTransaction alreadyFoundTransaction = _transactions[depositId];
-             
-            _logger.DoLog([alreadyFoundTransaction, transaction]);
+            if(alreadyFoundTransaction.IsInitiator){
+                _logger.DoLog([alreadyFoundTransaction, transaction]);
+            }else{
+                _logger.DoLog([transaction, alreadyFoundTransaction]);
+            }
             TryRemove(depositId, alreadyFoundTransaction);
         }
     }
@@ -28,7 +31,8 @@ public class TransactionMatcher
     }
 
     public static void LogUnmatchedTransactions(){
-        Console.WriteLine("|" + StringUtils.PadBoth("Unmatched transactions", 187) + "|");
+        Console.WriteLine("|" + StringUtils.PadBoth("Unmatched transactions", 199) + "|");
+        Console.WriteLine("_________________________________________________________________________________________________________________________________________________________________________________________________________");
         foreach(var transaction in _transactions.Values){
          _logger.DoLog([transaction]);
         }

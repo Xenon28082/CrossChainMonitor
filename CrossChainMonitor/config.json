@@ -3,21 +3,23 @@
         "Ethereum": {
             "Name": "Etherium",
             "Url": "https://eth-mainnet.g.alchemy.com/v2/jbuXy3n_8o1QiO1VmgqgaIiSagMOsiue",
-            "StartBlockNumber": -1,
+            "StartBlockNumber": 20163848,
             "Duration": 50,
             "UpdateFrequency" : 12000,
             "Observers": [
-                "CrossChainMonitor.Observers.EtheriumObserver"
+                "CrossChainMonitor.Observers.FilledV3RelayObserver",
+                "CrossChainMonitor.Observers.V3FundsDepositedObserver"
             ]
         },
         "Base": {
             "Name": "Base",
             "Url": "https://base-mainnet.g.alchemy.com/v2/jbuXy3n_8o1QiO1VmgqgaIiSagMOsiue",
-            "StartBlockNumber": -1,
+            "StartBlockNumber": 16235294,
             "Duration": 50,
             "UpdateFrequency" : 2000,
             "Observers": [
-                "CrossChainMonitor.Observers.BaseObserver"
+                "CrossChainMonitor.Observers.FilledV3RelayObserver",
+                "CrossChainMonitor.Observers.V3FundsDepositedObserver"
             ]
         }
     }

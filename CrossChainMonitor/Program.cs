@@ -10,8 +10,6 @@ namespace CrossChainMonitor;
 class Program
 {
     static async Task Main(string[] args){
-        //Eth 20163848
-        //Base 16235294
          var config = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("config.json", optional: false).Build();

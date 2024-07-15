@@ -36,11 +36,18 @@ class Monitor : IHostedService
                     {
 
                         var web3 = new Web3(chainConfig.Value.Url);
+                        var observers = new List<IObserver>();
+                        foreach (var observer in chainConfig.Value.Observers)
+                        {
+                            observers.Add(_observerFactory.CreateObserver(observer));
+                        }
                         var processor = web3.Processing.Logs.CreateProcessor(log =>
                         {
                             try
                             {
-                                _observerFactory.CreateObserver(chainConfig.Value.Observers[0]).Observe(log);
+                                foreach(var observer in observers){
+                                    observer.Observe(log);
+                                }
                             }
                             catch (ObserverFactoryException exception)
                             {

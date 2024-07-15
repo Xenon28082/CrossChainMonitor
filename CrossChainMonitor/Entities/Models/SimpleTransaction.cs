@@ -3,7 +3,7 @@ using Nethereum.Hex.HexTypes;
 
 namespace CrossChainMonitor.Models;
 
-public class SimpleTransaction(string chainName, string transactionHash, string depositor, string reciever, HexBigInteger blockNumber)
+public class SimpleTransaction(string chainName, string transactionHash, string depositor, string reciever, HexBigInteger blockNumber, bool isInitiator)
 {
 
     public string ChainName { get; } = chainName;
@@ -15,7 +15,10 @@ public class SimpleTransaction(string chainName, string transactionHash, string 
     public string Reciever { get; } = reciever;
 
     public HexBigInteger BlockNumber {get; } = blockNumber;
+
+    public bool IsInitiator {get; } = isInitiator;
+
     public override string ToString(){
-            return "|" + StringUtils.PadBoth(ChainName, 12) + "| " + TransactionHash + " | " + Depositor + " | " + Reciever + " |";
+            return "|" + StringUtils.PadBoth(IsInitiator ? "input" : "output", 9) + " | " + StringUtils.PadBoth(ChainName, 12) + "| " + TransactionHash + " | " + Depositor + " | " + Reciever + " |";
         }
 }
