@@ -8,11 +8,11 @@ namespace CrossChainMonitor.Observers;
 
 public class FilledV3RelayObserver : IObserver
 {
-    public void Observe(FilterLog log)
+    public void Observe(FilterLog log, string chainName)
     {
         var transitionEvent = log.DecodeEvent<FilledV3RelayEventDTO>();
         if (transitionEvent != null){
-            TransactionMatcher.TryAdd(transitionEvent.Event.DepositId, new SimpleTransaction("", log.TransactionHash, transitionEvent.Event.Depositor, transitionEvent.Event.Recipient, transitionEvent.Log.BlockNumber, false));
+            TransactionMatcher.TryAdd(transitionEvent.Event.DepositId, new SimpleTransaction(chainName, log.TransactionHash, transitionEvent.Event.Depositor, transitionEvent.Event.Recipient, transitionEvent.Log.BlockNumber, false));
         }
     }
 }

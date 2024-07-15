@@ -8,11 +8,11 @@ namespace CrossChainMonitor.Observers;
 
 public class V3FundsDepositedObserver : IObserver{
 
-    public void Observe(FilterLog log){
+    public void Observe(FilterLog log, string chainName){
         
         var transitionEvent = log.DecodeEvent<V3FundsDepositedEventDTO>();
         if(transitionEvent != null){
-            TransactionMatcher.TryAdd(transitionEvent.Event.DepositId, new SimpleTransaction("", log.TransactionHash, transitionEvent.Event.Depositor, transitionEvent.Event.Recipient, transitionEvent.Log.BlockNumber, true));
+            TransactionMatcher.TryAdd(transitionEvent.Event.DepositId, new SimpleTransaction(chainName, log.TransactionHash, transitionEvent.Event.Depositor, transitionEvent.Event.Recipient, transitionEvent.Log.BlockNumber, true));
         }
 
     }

@@ -46,7 +46,7 @@ class Monitor : IHostedService
                             try
                             {
                                 foreach(var observer in observers){
-                                    observer.Observe(log);
+                                    observer.Observe(log, chainConfig.Value.Name);
                                 }
                             }
                             catch (ObserverFactoryException exception)
